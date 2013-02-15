@@ -16,11 +16,11 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.11.0'
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '1.1.2'
   gem 'factory_girl_rails'
 end
 
