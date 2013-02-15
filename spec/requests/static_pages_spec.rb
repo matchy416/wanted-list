@@ -2,12 +2,14 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
-	describe "Home Page" do
-		before { visit '/'}
+	subject { page }
 
-		it "should contain html" do
-			page.should have_selector('h1', text: 'Wanted List')
-			page.should have_selector('title', text: 'Wanted List')
+	describe "Home Page" do
+		before { visit root_path}
+
+		it "should contain important html elements" do
+			should have_selector('h1', text: 'Wanted List')
+			should have_selector('title', text: 'Wanted List')
 		end
 	end	
 end
