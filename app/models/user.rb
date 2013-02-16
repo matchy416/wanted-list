@@ -8,6 +8,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -16,6 +17,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :username, :password, :password_confirmation
   has_secure_password
 
+  before_save :create_remember_token
   before_save do |user|
   	user.email = user.email.downcase
   	user.username = user.username.downcase
@@ -27,4 +29,10 @@ class User < ActiveRecord::Base
   				uniqueness: {case_sensitive: false}
   validates :password, presence: true, length: { minimum: 8 }
   validates :password_confirmation, presence: true
+
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

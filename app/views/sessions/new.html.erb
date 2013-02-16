@@ -1,0 +1,15 @@
+<% provide(:title, 'Sign in') %>
+<h1>Sign in</h1>
+<p>Enter username and password to login</p>
+
+<%= form_tag sessions_path do %>
+	<%= label_tag :username %>
+	<%= text_field_tag :username, params[:username] %>
+
+	<%= label_tag :password %>
+	<%= password_field_tag :password, params[:password] %>
+
+	<%= submit_tag "Sign in", class: "btn btn-large btn-success" %>
+<% end %>
+
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>
