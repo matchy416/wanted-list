@@ -1,10 +1,15 @@
-<% provide(:title, 'User Administration') %>
-<h1>User Administration</h1>
+<div class="row">
+	<%= render 'shared/user_profile' %>
 
-<%= will_paginate %>
-
-<table>
-	<%= render @users %>
-</table>
-
-<%= will_paginate %>
+	<div class="span9">
+		<h3>User Administration</h3>
+		
+		<%= will_paginate %>
+		
+		<table>
+			<%= render @users %>
+		</table>
+		
+		<%= will_paginate %>
+	</div>
+</div>

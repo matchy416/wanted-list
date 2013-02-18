@@ -1,2 +1,19 @@
-<%= @user.username %>
-<%= @user.email %>
+<div class="row">
+	<div class="span3">
+		<h4><%= @user.username %></h4>
+		<% if @user.items.any? %>
+			<h4><%= pluralize(@user.items.count, "Item") %></h4>
+		<% end %>
+	</div>
+	
+	<div class="span9">
+		<h3>Items</h3>
+		
+		<% if @user.items.any? %>
+	
+			<%= render @items %>
+			
+			<%= will_paginate @items %>
+		<% end %>
+	</div>
+</div>

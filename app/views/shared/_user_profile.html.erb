@@ -1,0 +1,7 @@
+<div class="span3">
+	<h4><%= current_user.username %></h4>
+	<% if current_user.items.any? %>
+		<h4><%= pluralize(current_user.items.count, "Item") %></h4>
+	<% end %>
+	<%= link_to "Add", new_item_path, class: "btn btn-primary" %>
+</div>

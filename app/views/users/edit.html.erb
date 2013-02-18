@@ -1,20 +1,25 @@
-<% provide(:title, 'Update Profile') %>
-<h1>Update Profile</h1>
+<div class="row">
+	<%= render 'shared/user_profile' %>
 
-<%= form_for(@user) do |f| %>
-	<%= render 'shared/error_messages' %>
-	
-	<%= f.label :username %>
-	<%= f.text_field :username %>
-
-	<%= f.label :email %>
-	<%= f.text_field :email %>
-
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %>
-
-	<%= f.submit "Save", class: "btn btn-large btn-success" %>
-<% end %>
+	<div class="span9">
+		<h3>Update Profile</h3>
+			
+		<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			
+			<%= f.label :username %>
+			<%= f.text_field :username %>
+		
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation %>
+		
+			<%= f.submit "Save", class: "btn btn-large btn-success" %>
+		<% end %>
+	</div>
+</div>

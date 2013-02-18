@@ -1,9 +1,8 @@
-<% provide(:title, 'Signup') %>
 <h1>Signup</h1>
 <p>Create a new account</p>
 
 <%= form_for(@user) do |f| %>
-	<%= render 'shared/error_messages' %>
+	<%= render 'shared/error_messages', object: f.object %>
 	
 	<%= f.label :username %>
 	<%= f.text_field :username %>

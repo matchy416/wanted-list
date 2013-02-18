@@ -1,0 +1,6 @@
+<h4><%= item.title %></h4>
+<p><%= item.description %>
+<% if current_user?(item.user) %>
+	<%= link_to "delete", item, method: "delete" %>
+<% end %>
+</p>
